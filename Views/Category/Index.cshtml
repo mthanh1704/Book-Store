@@ -1,0 +1,46 @@
+﻿@model ICollection<Book_Store.Models.Category>
+
+<div class="container col-md-8 text-center mt-3">
+    <h1 class="text text-danger">Categoty List</h1>
+    <a class="btn btn-primary"  asp-action="Create">Create New</a>
+
+<table class="table table-primary mt-3">
+    <thead>
+        <tr>
+           
+            <th>
+                  Description   
+            </th>
+            <th>
+               Name
+            </th>
+            <th>
+                Image
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                <img src="@item.Image" width="150" height="150"/>
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,36 @@
+﻿@model Book_Store.Models.Book
+
+<div class="container col-md-10 text-center mt-3">
+    <table class="table table-hover mt-3">
+        <tr>
+            <th colspan="2" style="font-family:Apple Chancery, cursive; color:firebrick; font-size:50px">Book Details</th>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td>
+                <img src="@Model.Image" width="200" height="150"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>@Model.Price $</td>
+        </tr>
+
+        <tr>
+            <th>Category</th>
+            <td>
+                <a asp-controller="Category" asp-action="Details" asp-route-id="@Model.CategoryId">
+                    @Model.Category.Description
+                </a>
+            </td>
+        </tr>        
+    </table>
+</div>
